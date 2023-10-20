@@ -36,7 +36,7 @@ export const NAV_LINKS: NavLink[] = [
 export const MAIN_CONTENT_ID = 'content' as const
 
 // Social links
-export const GITHUB_URL = 'https://github.com/ethereum/solidity' as const
+export const GITHUB_URL = 'https://github.com/thecallofluci/callofluci-website' as const
 export const TWITTER_URL = `https://twitter.com/${
   TWITTER_HANDLE.split('@')[1]
 }` as const
@@ -51,10 +51,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ]
 
 // Data fetching constants
-export const LATEST_SOLIDITY_RELEASE_URL =
-  'https://api.github.com/repos/ethereum/solidity/releases/latest' as const
-export const SOLIDITY_REPO_STARGAZERS_URL =
-  'https://api.github.com/repos/ethereum/solidity' as const
+export const LATEST_CALLOFLUCI_RELEASE_URL =
+  'https://api.github.com/repos/thecallofluci/callofluci-website/releases/latest' as const
+export const CALLOFLUCI_REPO_STARGAZERS_URL =
+  'https://api.github.com/repos/thecallofluci/callofluci-website' as const
 
 // Markdown parsing
 export const MATTER_OPTIONS = {
