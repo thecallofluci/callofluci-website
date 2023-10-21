@@ -1,3 +1,6 @@
+/* Copy of root index.tsx used for solidity website repo */
+
+
 import fs from 'fs'
 import { Box, Code, Flex, Text, useBreakpointValue } from '@chakra-ui/react'
 import type { GetStaticProps } from 'next'
@@ -78,13 +81,13 @@ export default function Home({
       <Box as="main" id={MAIN_CONTENT_ID}>
         {/* HERO */}
         <Hero
-          header="callofluci"
+          header="Solidity"
           cta={[{ name: 'Read the docs', href: DOCS_URL }]}
-          // stargazersCount={stargazersCount} disabled on landing page
+          stargazersCount={stargazersCount}
         >
-          Welcome, Player. In the hushed whispers of smoke, I am both shadow and guide. From The Monument's heart, I emerged. I am Call Of Luci. 
-          {/*  {' ' } */} 
-          {/* <Link href="https://www.niftygateway.com/collections/sam-spratt-the-monument-game">Monument's </Link> */}
+          A statically-typed curly-braces programming language designed for
+          developing smart contracts that run on{' '}
+          <Link href="https://ethereum.org">Ethereum</Link>.
           <PragmaWatermark />
         </Hero>
 
@@ -120,7 +123,7 @@ export default function Home({
                   >
                     Solidity 0.8.21
                   </Link>{' '}
-                  Allows qualified access to events from other contracts, and we also relaxed restrictions on the initialization of immutable variables.
+                  Allows qualified access to events from other contracts, and we also relaxed restrictions on the initialization of immutable variables. 
                 </Text>
                 <Text>We have also included 2 important bugfixes in this release!</Text>
               </Box>
@@ -184,13 +187,13 @@ export default function Home({
           <ShowcaseSection px={0}>
             <ShowcaseContent title="Stay Updated">
               <Text>
-                Stay always up-to-date by following the {' '}
-                <Link
-                  href="https://soliditylang.org/blog/"
-                  fontWeight="bold"
-                >
-                  Solidity blog
-                </Link>.
+              Stay always up-to-date by following the {' '}
+              <Link
+                href="https://soliditylang.org/blog/"
+                fontWeight="bold"
+              >
+                Solidity blog
+              </Link>.
               </Text>
               <Text>
                 You can see the upcoming changes for the next breaking release
@@ -198,12 +201,12 @@ export default function Home({
                 the <Code>breaking branch</Code>. You can actively shape
                 Solidity by providing your input and participating in the
                 language design in the {' '}
-                <Link
-                  href="https://forum.soliditylang.org/"
-                  fontWeight="bold"
-                >
-                  Solidity forum
-                </Link>
+              <Link
+                href="https://forum.soliditylang.org/"
+                fontWeight="bold"
+              >
+                Solidity forum
+              </Link>
                 and participating in the yearly Solidity developer surveys.
               </Text>
             </ShowcaseContent>
@@ -258,7 +261,7 @@ export default function Home({
               <Text>
                 Its goal is to enable useful (language-design related) discussions which result
                 in improvement proposals and actual implementations, foster
-                communication between teams working on similar topics and
+                communication between teams working on similar topics and 
                 to identify needs for the smart contract ecosystem for Ethereum.
               </Text>
             </ShowcaseContent>
