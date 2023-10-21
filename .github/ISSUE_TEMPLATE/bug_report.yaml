@@ -1,7 +1,7 @@
 name: Bug report
 description: Create a report to help us improve
 title: Bug report
-labels: ["bug :bug:"]
+labels: ['bug :bug:']
 body:
   - type: textarea
     id: bug_report_description
@@ -26,7 +26,8 @@ body:
     id: bug_report_expected_behavior
     attributes:
       label: Expected behavior
-      description: A clear and concise description of what you expected to happen
+      description:
+        A clear and concise description of what you expected to happen
     validations:
       required: true
   - type: textarea

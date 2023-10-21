@@ -7,26 +7,32 @@ author: Solidity Team
 category: Security Alerts
 ---
 
-On October 14, 2020, a bug in the Solidity code generator was reported by
-John Toman of the Certora development team. Certora's bug disclosure post can be found [here](https://medium.com/certora/the-solidity-compiler-silently-corrupts-storage-certora-bug-disclosure-b909289f0d6f).
+On October 14, 2020, a bug in the Solidity code generator was reported by John
+Toman of the Certora development team. Certora's bug disclosure post can be
+found
+[here](https://medium.com/certora/the-solidity-compiler-silently-corrupts-storage-certora-bug-disclosure-b909289f0d6f).
 
-The bug is fixed with [Solidity version 0.7.4](https://github.com/ethereum/solidity/releases/tag/v0.7.4)
-released on October 19, 2020. **The bug is present in all prior versions of Solidity.**
+The bug is fixed with
+[Solidity version 0.7.4](https://github.com/ethereum/solidity/releases/tag/v0.7.4)
+released on October 19, 2020. **The bug is present in all prior versions of
+Solidity.**
 
 We assigned the bug a severity level of "medium".
 
 ## Who should be concerned
 
-This bug can cause newly created elements of `bytes` or `string` arrays in storage
-to be initialized by a non-zero value. For this to happen, the following three
-actions have to take place:
+This bug can cause newly created elements of `bytes` or `string` arrays in
+storage to be initialized by a non-zero value. For this to happen, the following
+three actions have to take place:
 
-- You copy an **empty** `bytes` or `string` value from `memory` or `calldata` to storage.
-- You extend the storage value by modifying `.length` or using `.push()` (not `.push(c)`).
+- You copy an **empty** `bytes` or `string` value from `memory` or `calldata` to
+  storage.
+- You extend the storage value by modifying `.length` or using `.push()` (not
+  `.push(c)`).
 - You read the newly created byte array element without writing to it first.
 
-Note that the last step can also be done implicitly by reading the whole byte array
-or passing it on to somewhere.
+Note that the last step can also be done implicitly by reading the whole byte
+array or passing it on to somewhere.
 
 The read operation can result in the new byte array elements being non-zero.
 

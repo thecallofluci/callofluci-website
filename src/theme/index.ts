@@ -17,7 +17,8 @@ const overrides = {
       50: '#FAF8FF', // super light gray
       200: '#E6E3EC', // light purple gray
     },
-    luci: {           // added custom orange color, luci
+    luci: {
+      // added custom orange color, luci
       50: '#F3DECE',
       100: '#F0D6C2',
       200: '#ECCBB1',
@@ -30,7 +31,8 @@ const overrides = {
       900: '#834B20',
       950: '#6F3F1B',
     },
-    bone: {           // added custom neutral color, bone
+    bone: {
+      // added custom neutral color, bone
       50: '#FBFBF9',
       100: '#F9F8F6',
       200: '#F5F4EF',
@@ -43,7 +45,8 @@ const overrides = {
       900: '#BEB597',
       950: '#B9AF8E',
     },
-    stone: {           // added custom coal/black color, stone
+    stone: {
+      // added custom coal/black color, stone
       50: '#FAFAF9',
       100: '#F5F5F4',
       200: '#E7E5E4',
@@ -71,7 +74,8 @@ const overrides = {
     '6xl': '3.25rem',
     '7xl': '4rem',
   },
-  fontWeights: { // added custom font weights
+  fontWeights: {
+    // added custom font weights
     overpass: {
       normal: 400,
       medium: 500,

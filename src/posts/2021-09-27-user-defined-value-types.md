@@ -7,22 +7,24 @@ author: Solidity Team
 category: Explainers
 ---
 
-[Solidity v0.8.8](https://github.com/ethereum/solidity/releases/tag/v0.8.8) introduces [user defined
-value types](https://docs.soliditylang.org/en/latest/types.html?#user-defined-value-types) as a
-means to create zero-cost abstractions over an elementary value type that also increases type safety
-and improves readability.
+[Solidity v0.8.8](https://github.com/ethereum/solidity/releases/tag/v0.8.8)
+introduces
+[user defined value types](https://docs.soliditylang.org/en/latest/types.html?#user-defined-value-types)
+as a means to create zero-cost abstractions over an elementary value type that
+also increases type safety and improves readability.
 
 ## Motivation
 
-A problem with primitive value types is that they are not very descriptive: they only specify how
-the data is stored and not how it should be interpreted. For example, one may want to use `uint128`
-to store the price of some object as well as the quantity available. It is quite useful to have
-stricter type rules to avoid intermingling of the two different concepts. For example, one may want
-to disallow assigning a quantity to a price or vice versa.
+A problem with primitive value types is that they are not very descriptive: they
+only specify how the data is stored and not how it should be interpreted. For
+example, one may want to use `uint128` to store the price of some object as well
+as the quantity available. It is quite useful to have stricter type rules to
+avoid intermingling of the two different concepts. For example, one may want to
+disallow assigning a quantity to a price or vice versa.
 
 One option for solving this issue is by using
-[structs](https://docs.soliditylang.org/en/latest/types.html#structs). For example, price and
-quantity can be abstracted as structs as follows:
+[structs](https://docs.soliditylang.org/en/latest/types.html#structs). For
+example, price and quantity can be abstracted as structs as follows:
 
 ```solidity
 struct Price { uint128 price; }
@@ -42,25 +44,29 @@ function fromQuantity(Quantity memory quantity) returns(uint128) {
 }
 ```
 
-However, a [struct](https://docs.soliditylang.org/en/latest/types.html?#structs) is a reference type
-and therefore always points to a value in `memory`, `calldata` or `storage`. This means that the
-above abstraction has a runtime overhead, i.e., additional gas when compared to using just `uint128`
-to represent the underlying value. In particular, the functions `toPrice` and `toQuantity` involve
-storing the value in memory. Similarly, the functions `fromPrice` and `fromQuantity` read the
-respective value from memory. Together, these functions pass the value from `stack -> memory ->
-stack` which wastes memory and incurs a runtime cost. This issue is solved by user defined value
-types, which are abstractions of elementary value types (such as `uint8` or `address`), without any
-additional runtime overhead.
+However, a [struct](https://docs.soliditylang.org/en/latest/types.html?#structs)
+is a reference type and therefore always points to a value in `memory`,
+`calldata` or `storage`. This means that the above abstraction has a runtime
+overhead, i.e., additional gas when compared to using just `uint128` to
+represent the underlying value. In particular, the functions `toPrice` and
+`toQuantity` involve storing the value in memory. Similarly, the functions
+`fromPrice` and `fromQuantity` read the respective value from memory. Together,
+these functions pass the value from `stack -> memory -> stack` which wastes
+memory and incurs a runtime cost. This issue is solved by user defined value
+types, which are abstractions of elementary value types (such as `uint8` or
+`address`), without any additional runtime overhead.
 
 ## Syntax for User Defined Value Types
 
-A user defined value type is defined using `type C is V;`, where `C` is the name of the newly
-introduced type and `V` has to be a built-in value type (the "underlying type"). They can be defined
-inside or outside contracts (including libraries and interfaces). The function `C.wrap` is used to
-convert from the underlying type to the custom type. Similarly, the function `C.unwrap` is used to
-convert from the custom type to the underlying type.
+A user defined value type is defined using `type C is V;`, where `C` is the name
+of the newly introduced type and `V` has to be a built-in value type (the
+"underlying type"). They can be defined inside or outside contracts (including
+libraries and interfaces). The function `C.wrap` is used to convert from the
+underlying type to the custom type. Similarly, the function `C.unwrap` is used
+to convert from the custom type to the underlying type.
 
-Going back to the problem from the [motivation](#motivation) section, one can replace the structs by:
+Going back to the problem from the [motivation](#motivation) section, one can
+replace the structs by:
 
 ```solidity
 pragma solidity ^0.8.8;
@@ -69,17 +75,19 @@ type Price is uint128;
 type Quantity is uint128;
 ```
 
-The functions `toPrice` and `toQuantity` can be replaced by `Price.wrap` and `Quantity.wrap`
-respectively. Similarly, the functions `fromPrice` and `fromQuantity` can be replaced by
-`Price.unwrap` and `Quantity.unwrap` respectively.
+The functions `toPrice` and `toQuantity` can be replaced by `Price.wrap` and
+`Quantity.wrap` respectively. Similarly, the functions `fromPrice` and
+`fromQuantity` can be replaced by `Price.unwrap` and `Quantity.unwrap`
+respectively.
 
-The data-representation of the values of such types are inherited from the underlying type and the
-underlying type is also used in the ABI. This means that the following two `transfer` functions
-would be identical, i.e., they have the same [function
-selector](https://docs.soliditylang.org/en/latest/abi-spec.html#function-selector) as well as the
-same [ABI encoding and
-decoding](https://docs.soliditylang.org/en/latest/abi-spec.html#mapping-solidity-to-abi-types). This
-allows using user defined value types in a backwards compatible way.
+The data-representation of the values of such types are inherited from the
+underlying type and the underlying type is also used in the ABI. This means that
+the following two `transfer` functions would be identical, i.e., they have the
+same
+[function selector](https://docs.soliditylang.org/en/latest/abi-spec.html#function-selector)
+as well as the same
+[ABI encoding and decoding](https://docs.soliditylang.org/en/latest/abi-spec.html#mapping-solidity-to-abi-types).
+This allows using user defined value types in a backwards compatible way.
 
 ```solidity
 pragma solidity ^0.8.8;
@@ -95,13 +103,14 @@ interface AnotherMinimalERC20 {
 }
 ```
 
-Notice in the above example, how the user defined type `Decimal18` makes it clear that a value is
-supposed to represent a number with 18 decimals.
+Notice in the above example, how the user defined type `Decimal18` makes it
+clear that a value is supposed to represent a number with 18 decimals.
 
 ## Example
 
-The following example illustrates a custom type `UFixed` representing a decimal fixed point type
-with 18 decimals and a minimal library to do arithmetic operations on the type.
+The following example illustrates a custom type `UFixed` representing a decimal
+fixed point type with 18 decimals and a minimal library to do arithmetic
+operations on the type.
 
 ```solidity
 // SPDX-License-Identifier: GPL-3.0
@@ -138,20 +147,21 @@ library FixedMath {
 }
 ```
 
-Notice how `UFixed.wrap` and `FixedMath.toUFixed` have the same signature but perform two very
-different operations: The `UFixed.wrap` function returns a `UFixed` that has the same data
-representation as the input, whereas `toUFixed` returns a `UFixed` that has the same numerical
-value. One can allow some form of type-encapsulation by only using the `wrap` and `unwrap` functions
-in the file that defines the type.
+Notice how `UFixed.wrap` and `FixedMath.toUFixed` have the same signature but
+perform two very different operations: The `UFixed.wrap` function returns a
+`UFixed` that has the same data representation as the input, whereas `toUFixed`
+returns a `UFixed` that has the same numerical value. One can allow some form of
+type-encapsulation by only using the `wrap` and `unwrap` functions in the file
+that defines the type.
 
 ## Operators and Type Rules
 
 Explicit and implicit conversions to and from other types are disallowed.
 
-Currently, no operators are defined for user defined value types. In particular, even the operator
-`==` is not defined. However, allowing operators is currently being discussed. To give a short
-outlook on the applications, one may want to introduce a new integer type that always does wrapping
-arithmetic as follows:
+Currently, no operators are defined for user defined value types. In particular,
+even the operator `==` is not defined. However, allowing operators is currently
+being discussed. To give a short outlook on the applications, one may want to
+introduce a new integer type that always does wrapping arithmetic as follows:
 
 ```solidity
 /// Proposal on defining operators on user defined value types
@@ -185,8 +195,9 @@ contract MockOperator {
 }
 ```
 
-You can join or follow this discussion in the [Solidity
-forum](https://forum.soliditylang.org/t/user-defined-types-and-operators/456) and [issue
-#11969](https://github.com/ethereum/solidity/issues/11969). Also, you can join or follow the
-discussion about allowing the constructor syntax for user defined value types in the [issue
-#11953](https://github.com/ethereum/solidity/issues/11953).
+You can join or follow this discussion in the
+[Solidity forum](https://forum.soliditylang.org/t/user-defined-types-and-operators/456)
+and [issue #11969](https://github.com/ethereum/solidity/issues/11969). Also, you
+can join or follow the discussion about allowing the constructor syntax for user
+defined value types in the
+[issue #11953](https://github.com/ethereum/solidity/issues/11953).

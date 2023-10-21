@@ -38,7 +38,8 @@ export const NAV_LINKS: NavLink[] = [
 export const MAIN_CONTENT_ID = 'content' as const
 
 // Social links
-export const GITHUB_URL = 'https://github.com/thecallofluci/callofluci-website' as const
+export const GITHUB_URL =
+  'https://github.com/thecallofluci/callofluci-website' as const
 export const TWITTER_URL = `https://twitter.com/${
   TWITTER_HANDLE.split('@')[1]
 }` as const

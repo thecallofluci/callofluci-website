@@ -7,11 +7,16 @@ author: Franziska Heintel
 category: Announcements
 ---
 
-We can't believe it's already been two weeks since we met in Amsterdam for the second [Solidity Summit](https://summit.soliditylang.org/)!
+We can't believe it's already been two weeks since we met in Amsterdam for the
+second [Solidity Summit](https://summit.soliditylang.org/)!
 
-[Solidity Summit 2022](https://blog.soliditylang.org/2022/02/22/solidity-summit-2022-announcement/) was part of [Devconnect](https://devconnect.org/) and took place on Wednesday, April 20, 2022.
+[Solidity Summit 2022](https://blog.soliditylang.org/2022/02/22/solidity-summit-2022-announcement/)
+was part of [Devconnect](https://devconnect.org/) and took place on Wednesday,
+April 20, 2022.
 
-With roughly 250 participants, the event was well attended. In addition, approximately 400 people joined remotely by watching the [Livepeer livestream](https://streameth.tv/event/solidity-summit).
+With roughly 250 participants, the event was well attended. In addition,
+approximately 400 people joined remotely by watching the
+[Livepeer livestream](https://streameth.tv/event/solidity-summit).
 
 The day was packed with 20+ talks on
 
@@ -23,7 +28,12 @@ The day was packed with 20+ talks on
 
 ... and more.
 
-The full agenda of the day can be found [here](https://summit.soliditylang.org/agenda.html). You can watch all talks by browsing through the individual videos in the [YouTube playlist](https://www.youtube.com/playlist?list=PLX8x7Zj6Vezl1lqBgxiQH3TFbRNZza8Fk) or see the entire [stream on StreamETH.tv](https://streameth.tv/event/solidity-summit).
+The full agenda of the day can be found
+[here](https://summit.soliditylang.org/agenda.html). You can watch all talks by
+browsing through the individual videos in the
+[YouTube playlist](https://www.youtube.com/playlist?list=PLX8x7Zj6Vezl1lqBgxiQH3TFbRNZza8Fk)
+or see the entire
+[stream on StreamETH.tv](https://streameth.tv/event/solidity-summit).
 
 ---
 
@@ -95,8 +105,10 @@ Sorted by topic, here are all talks with links to the recordings and slides.
   - [Recording](https://youtu.be/8RGBB7xwaBs)
   - [Slides](https://github.com/ethereum/solidity-summit/blob/master/2022/slides/1615_GrantWuerker_Bootstrapping%20a%20Compiler%20with%20Yul.pdf)
 
-We hope you enjoyed the day as much as we did! We are looking forward to the next Solidity Summit already and thank you all for your eager participation.
+We hope you enjoyed the day as much as we did! We are looking forward to the
+next Solidity Summit already and thank you all for your eager participation.
 
-In the meantime, feel free to send feedback and ideas for the upmcoming summits our way (`sol-summit[at]ethereum.org`) and see you all soon!
+In the meantime, feel free to send feedback and ideas for the upmcoming summits
+our way (`sol-summit[at]ethereum.org`) and see you all soon!
 
 ![Solidity Summit 2022](/img/2022/05/solidity_summit.png)

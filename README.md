@@ -26,10 +26,13 @@ and the flames of destiny dance.
 
 - [Node.js](https://nodejs.org/)
 - [Yarn package manager](https://yarnpkg.com/cli/install)
-- [React](https://reactjs.org/) - A JavaScript library for building component-based user interfaces
-- [Typescript](https://www.typescriptlang.org/) - TypeScript is a strongly typed programming language that builds on JavaScript
+- [React](https://reactjs.org/) - A JavaScript library for building
+  component-based user interfaces
+- [Typescript](https://www.typescriptlang.org/) - TypeScript is a strongly typed
+  programming language that builds on JavaScript
 - [Chakra UI](https://chakra-ui.com/) - A UI library
-- [GitHub Actions](https://github.com/features/actions) - Manages CI/CD, and issue tracking
+- [GitHub Actions](https://github.com/features/actions) - Manages CI/CD, and
+  issue tracking
 
 ## Local environment setup
 
@@ -53,7 +56,8 @@ Run the development server:
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the site.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the
+site.
 
 ## Code structure
 
@@ -91,7 +95,8 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
   }
   ```
 
-  (See [src/interfaces.ts](src/interfaces.ts) for canonical `BlogPostFrontmatter` interface.)
+  (See [src/interfaces.ts](src/interfaces.ts) for canonical
+  `BlogPostFrontmatter` interface.)
 
 - `Category` must take one of the following values:
 
@@ -100,12 +105,16 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
   - `Announcements`
   - `Explainers`
 
-  (See [src/constants.ts](src/constants.ts) and [src/interfaces.ts](src/interfaces.ts) for canonical `Category` enum.)
+  (See [src/constants.ts](src/constants.ts) and
+  [src/interfaces.ts](src/interfaces.ts) for canonical `Category` enum.)
 
-- `title` property will be displayed automatically as an `<h1>` (`#` in markdown), and should not be included in the markdown body—start document header levels from `<h2>` (`##`)
+- `title` property will be displayed automatically as an `<h1>` (`#` in
+  markdown), and should not be included in the markdown body—start document
+  header levels from `<h2>` (`##`)
 - `date` property should be in `YYYY-MM-DD` format
 - MDX/JSX is not currently supported
-- Images can be placed in a corresponding folder within `/public/img` and references using `![alt text](/img/chosen-folder/image-name.png)`
+- Images can be placed in a corresponding folder within `/public/img` and
+  references using `![alt text](/img/chosen-folder/image-name.png)`
 
 ### Blog post example
 
@@ -126,14 +135,22 @@ Intro text
 
 ## Adding internal links
 
-When linking to content internal to this repo, relative paths should be used instead of absolute paths. This ensures proper routing with Next.js, and avoids unintentional page refreshes.
+When linking to content internal to this repo, relative paths should be used
+instead of absolute paths. This ensures proper routing with Next.js, and avoids
+unintentional page refreshes.
 
-This includes links to blog posts, which now live under https://callofluci.art/blog/ and should be referenced using `/blog/YYYY/MM-DD/post-name/`, _without_ `https://callofluci.art`.
+This includes links to blog posts, which now live under
+https://callofluci.art/blog/ and should be referenced using
+`/blog/YYYY/MM-DD/post-name/`, _without_ `https://callofluci.art`.
 
-This does NOT include links to the docs, which are located at a different subdomain of https://docs.callofluci.art. These should be referenced using their full URL, including `https://docs.callofluci.art`.
+This does NOT include links to the docs, which are located at a different
+subdomain of https://docs.callofluci.art. These should be referenced using their
+full URL, including `https://docs.callofluci.art`.
 
 ## Learn more about the stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
+  features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Chakra UI Documentation](https://chakra-ui.com/docs/getting-started) - learn about Chakra UI features and API.
+- [Chakra UI Documentation](https://chakra-ui.com/docs/getting-started) - learn
+  about Chakra UI features and API.

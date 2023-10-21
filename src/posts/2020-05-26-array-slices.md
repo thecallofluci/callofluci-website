@@ -7,18 +7,21 @@ author: Solidity Team
 category: Explainers
 ---
 
-Starting from [version 0.6.0](https://github.com/ethereum/solidity/releases/tag/v0.6.0), Solidity supports array slices.
-[Array slices](https://solidity.readthedocs.io/en/v0.6.8/types.html#array-slices) are handy when you want to reference a
-contiguous portion of an array but do not want to perform a full copy of that portion. For now, array slices are only
+Starting from
+[version 0.6.0](https://github.com/ethereum/solidity/releases/tag/v0.6.0),
+Solidity supports array slices.
+[Array slices](https://solidity.readthedocs.io/en/v0.6.8/types.html#array-slices)
+are handy when you want to reference a contiguous portion of an array but do not
+want to perform a full copy of that portion. For now, array slices are only
 supported for calldata arrays.
 
 ## How to use Array Slices
 
-The expression `x[start:end]` references a portion of the calldata array `x` starting at index `start` and ending just
-before index `end`.
+The expression `x[start:end]` references a portion of the calldata array `x`
+starting at index `start` and ending just before index `end`.
 
-Both `start` and `end` are optional. If not provided, `start` defaults to `0` and `end` defaults to the length of
-the respective array.
+Both `start` and `end` are optional. If not provided, `start` defaults to `0`
+and `end` defaults to the length of the respective array.
 
 Please note that no copy from calldata to memory is performed.
 
@@ -51,11 +54,13 @@ contract Proxy {
 
 ## How Array Slices Work Internally
 
-Calldata arrays have always been represented by two values: A start pointer and a length value. This is exactly the same
-representation we use for calldata array slices.
+Calldata arrays have always been represented by two values: A start pointer and
+a length value. This is exactly the same representation we use for calldata
+array slices.
 
 ## Limitations and Future Plans
 
-Array slices support index access and `.length` just like arrays, but do not support most copy operations.
+Array slices support index access and `.length` just like arrays, but do not
+support most copy operations.
 
 As of now, array slices are only implemented for calldata.
