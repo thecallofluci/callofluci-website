@@ -1,3 +1,5 @@
+'use client'
+
 export * from './BlogCard'
 export * from './BlogCategories'
 export * from './BlogHero'
